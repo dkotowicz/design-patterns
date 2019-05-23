@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Strona główna";
+}
+
+@model IEnumerable<Wzorce.Models.Ksiazka>
+<!-- Page Heading -->
+<h1 class="my-4">
+    Księgarnia
+</h1>
+<p>
+
+    <input type="button" class="btn" value="Dodaj nową książkę" onclick="location.href='@Url.Action("Add", "Ksiazka")'" />
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" style="height:300px; width:auto" src="@item.Link" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="@Url.Action("Details", "Ksiazka", new { id = item._id })" class="elements">
+                            @Html.DisplayFor(modelItem => item.Nazwa)
+                        </a>
+
+                    </h4>
+                    <p class="card-text">
+                        <b>@Html.DisplayNameFor(model => model.Okladka)</b> @Html.DisplayFor(modelItem => item.Okladka) <br />
+                        <b>@Html.DisplayNameFor(model => model.Liczba_stron)</b> @Html.DisplayFor(modelItem => item.Liczba_stron) <br />
+                        <b>@Html.DisplayNameFor(model => model.Cena)</b> @Html.DisplayFor(modelItem => item.Cena)
+                    </p>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-info btn-lg" onclick="location.href='@Url.Action("Edit", "Ksiazka", new { id = item._id })'">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a href="#" class="btn btn-info btn-lg" onclick="location.href='@Url.Action("Details", "Ksiazka", new { id = item._id })'">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </a>
+                        <a href="#" class="btn btn-info btn-lg" onclick="location.href='@Url.Action("Delete", "Ksiazka", new { id = item._id })'">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                        <a href="#" class="btn btn-info btn-lg" onclick="location.href='@Url.Action("Clone", "Ksiazka", new { id = item._id })'">
+                            <span class="glyphicon glyphicon-sort"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<br />
+<input type="button" class="btn" value="statystyki kategorii w formacie PDF" onclick="location.href='@Url.Action("PlotPDF", "Ksiazka")'" />
+<input type="button" class="btn" value="statystyki kategorii w formacie PNG" onclick="location.href='@Url.Action("PlotPNG", "Ksiazka")'" />
+<br /><br />

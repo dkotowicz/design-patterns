@@ -1,0 +1,26 @@
+﻿@model Wzorce.Models.Dane_kontaktowe
+
+@{
+    ViewBag.Title = "About";
+}
+
+
+
+<div>
+    <br />
+    <h2>KONTAKT</h2>
+    <hr />
+    <div class="text-center">
+        <font size="12">Księgarnia</font>
+        <p>
+            ul. @Html.DisplayFor(model => model.Ulica) @Html.DisplayFor(model => model.Nr_bloku) <br />
+            @Html.DisplayFor(model => model.Kod_pocztowy) @Html.DisplayFor(model => model.Miasto) <br />
+            tel. @Html.DisplayFor(model => model.Nr_telefonu)
+        </p>
+        <img src="~/Content/map.PNG" alt="Smiley face" width="400">
+    </div>
+</div>
+
+<p>
+    <input type="button" class="btn" value="Edytuj" onclick="location.href='@Url.Action("Edit", "Dane")'" />
+</p>

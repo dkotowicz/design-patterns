@@ -1,0 +1,58 @@
+﻿@model Wzorce.Models.Client
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Informacja o kliencie</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nr_telefonu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nr_telefonu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_urodzenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_urodzenia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <input type="button" class="btn" value="Usuń" onclick="location.href='@Url.Action("Delete", "Client", new { id = Model._id })'" />
+    <input type="button" class="btn" value="Edytuj" onclick="location.href='@Url.Action("Edit", "Client", new { id = Model._id })'" />
+
+</p>

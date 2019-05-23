@@ -1,0 +1,73 @@
+﻿@model Wzorce.Models.Ksiazka
+
+@{
+    ViewBag.Title = "Details";
+}
+<br/>
+<h2>Podgląd informacji o książce</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rok_produkcji)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rok_produkcji)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Liczba_stron)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Liczba_stron)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategoria)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nowosc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nowosc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Okladka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Okladka)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    <input type="button" class="btn" value="Usuń" onclick="location.href='@Url.Action("Delete", "Ksiazka", new { id = Model._id })'" />
+    <input type="button" class="btn" value="Edytuj" onclick="location.href='@Url.Action("Edit", "Ksiazka", new { id = Model._id })'" />
+    <input type="button" class="btn" value="Klonuj" onclick="location.href='@Url.Action("Clone", "Ksiazka", new { id = Model._id })'" />
+</p>
